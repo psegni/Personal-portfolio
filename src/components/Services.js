@@ -33,6 +33,11 @@ const Services = () => {
       description: 'Editing and producing professional videos, thumbnails, and reels using tools like CapCut and DaVinci Resolve.',
       icon: '🎬',
     },
+    {
+      title: 'Printing Services',
+      description: 'High-quality printing services for business cards, flyers, banners, posters, and other promotional materials with professional finishing.',
+      icon: '🖨️',
+    },
   ];
 
   return (
