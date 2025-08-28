@@ -164,6 +164,20 @@ const About = () => {
                   Implemented responsive designs and optimized performance.Created compelling visual designs for websites, branding, and marketing materials. Developed responsive layouts and engaging user interfaces. Collaborated with teams to ensure visual consistency and optimized design performance across platforms.
                 </p>
               </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg"
+              >
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                   Printing & Advertising , CEO
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400 mb-2">Starting From • 2025 - Present</p>
+                <p className="text-gray-600 dark:text-gray-400">
+                Lead printing and advertising strategy, modernizing workflows with digital print tech for faster turnarounds and better color accuracy. Build strong client partnerships to translate brands into impactful campaigns from concept to production. Oversee integrated print collateral, packaging, and large-format ads with consistent brand identity. Drive sustainability, optimize materials use, and boost ROI through data-driven campaigns. </p>
+              </motion.div>
             </div>
           </motion.div>
 
