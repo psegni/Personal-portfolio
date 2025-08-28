@@ -1,127 +1,263 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import image from '../studio_7.JPG';
+import DesignGalleryPreview from './DesignGalleryPreview';
 
-const Home = () => {
-  const roles = [
-    "Software Engineer",
-    "Website Developer",
-    "UI/UX Designer",
-    "Graphics Designer",
-    "Frontend Expert"
+const About = () => {
+  const programmingLanguages = [
+    {
+      name: 'Laravel',
+      logo: 'https://cdn.worldvectorlogo.com/logos/laravel-2.svg',
+    },
+    {
+      name: 'Node.js',
+      logo: 'https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg',
+    },
+    {
+      name: 'React',
+      logo: 'https://cdn.worldvectorlogo.com/logos/react-2.svg',
+    },
+    {
+      name: 'Vue.js',
+      logo: 'https://cdn.worldvectorlogo.com/logos/vue-9.svg',
+    },
+    {
+      name: 'HTML',
+      logo: 'https://cdn.worldvectorlogo.com/logos/html-1.svg',
+    },
+    {
+      name: 'CSS',
+      logo: 'https://cdn.worldvectorlogo.com/logos/css-3.svg',
+    },
+    {
+      name: 'Tailwind',
+      logo: 'https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg',
+    },
+    {
+      name: 'Bootstrap',
+      logo: 'https://cdn.worldvectorlogo.com/logos/bootstrap-5-1.svg',
+    },
+    {
+      name: 'MongoDB',
+      logo: 'https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg',
+    },
+    {
+      name: 'MySQL',
+      logo: 'https://cdn.worldvectorlogo.com/logos/mysql-2.svg',
+    },
+    {
+      name: 'XAMPP',
+      logo: 'https://cdn.worldvectorlogo.com/logos/xampp.svg',
+    },
+    {
+      name: 'JavaScript',
+      logo: 'https://cdn.worldvectorlogo.com/logos/javascript-1.svg',
+    },
   ];
 
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [currentText, setCurrentText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(150);
+  const designTools = [
+    { name: 'Photoshop', logo: 'https://cdn.worldvectorlogo.com/logos/adobe-photoshop-2.svg' },
+    { name: 'Illustrator', logo: 'https://cdn.worldvectorlogo.com/logos/adobe-illustrator-cc-3.svg' },
+    { name: 'Canva', logo: 'https://cdn.worldvectorlogo.com/logos/canva-wordmark-2.svg' },
+    { name: 'CapCut', logo: 'https://cdn.worldvectorlogo.com/logos/capcut-3.svg' },
+    { name: 'CorelDRAW', logo: 'https://cdn.worldvectorlogo.com/logos/coreldraw.svg' },
+    { name: 'DaVinci Resolve', logo: 'https://cdn.worldvectorlogo.com/logos/davinci-resolve-12.svg' },
+  ];
 
-  useEffect(() => {
-    const currentRole = roles[currentRoleIndex];
-    
-    const handleTyping = () => {
-      if (!isDeleting && currentText === currentRole) {
-        // Pause before starting to delete
-        setTimeout(() => setIsDeleting(true), 1500);
-        return;
-      }
+  // Sample gallery works
+  const galleryWorks = [
 
-      if (isDeleting && currentText === '') {
-        setIsDeleting(false);
-        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-        setTypingSpeed(150);
-        return;
-      }
+    { src: process.env.PUBLIC_URL + '/poster design 1.png', title: 'Poster Design 1', category: 'poster design' },
+    { src: process.env.PUBLIC_URL + '/poster design 2.png', title: 'Poster Design 2', category: 'poster design' },
+    { src: process.env.PUBLIC_URL + '/book cover 1.png', title: 'Book Cover 1', category: 'book cover design' },
+    { src: process.env.PUBLIC_URL + '/book cover 2.png', title: 'Book Cover 2', category: 'book cover design' },
+    { src: process.env.PUBLIC_URL + '/thumbnail design 1.png', title: 'Thumbnail Design 1', category: 'thumbnail design' },
+    { src: process.env.PUBLIC_URL + '/oky.png', title: 'Oky', category: 'logo design' },
+    { src: process.env.PUBLIC_URL + '/ooky.png', title: 'Ooky', category: 'logo design' },
+    { src: process.env.PUBLIC_URL + '/spoo.png', title: 'Spoo', category: 'logo design' },
+  ];
 
-      const delta = isDeleting ? -1 : 1;
-      setCurrentText(currentRole.substring(0, currentText.length + delta));
-      setTypingSpeed(isDeleting ? 50 : 150);
-    };
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [modalImg, setModalImg] = React.useState(null);
 
-    const timer = setTimeout(handleTyping, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [currentText, isDeleting, currentRoleIndex, roles, typingSpeed]);
+  const openModal = (img) => {
+    setModalImg(img);
+    setModalOpen(true);
+  };
+  const closeModal = () => setModalOpen(false);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <section id="about" className="z-20 py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            About Me
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+            I'm a passionate web developer with a Bachelor's degree in Software Engineering from Adam Science and Technology University.
+            I love creating beautiful, responsive, and user-friendly websites that solve real-world problems.
+            My journey in software development has equipped me with a diverse set of skills and technologies.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center md:text-left"
+            viewport={{ once: true }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
-              Hi, I'm <span className="text-blue-600 dark:text-blue-400">Segni Bultossa</span>
-            </h1>
-            <div className="h-12 mb-8">
-              <p className="text-xl text-gray-600 dark:text-gray-300">
-                A passionate{' '}
-                <span className="text-blue-600 dark:text-blue-400 font-semibold">
-                  {currentText}
-                  <span className="animate-pulse">|</span>
-                </span>
-              </p>
-            </div>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300"
-            >
-              Get in Touch
-            </motion.a>
-            <div className="flex justify-center md:justify-start gap-6 mt-6">
-              <a href="https://instagram.com/segni_97" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <svg width="28" height="28" fill="currentColor" className="text-gray-600 dark:text-gray-300 hover:text-pink-500 transition" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608C4.515 2.567 5.782 2.295 7.148 2.233 8.414 2.175 8.794 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.425 3.678 1.406 2.697 2.387 2.403 3.499 2.344 4.78.013 8.332 0 8.741 0 12c0 3.259.013 3.668.072 4.948.059 1.281.353 2.393 1.334 3.374.981.981 2.093 1.275 3.374 1.334C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.281-.059 2.393-.353 3.374-1.334.981-.981 1.275-2.093 1.334-3.374.059-1.28.072-1.689.072-4.948s-.013-3.668-.072-4.948c-.059-1.281-.353-2.393-1.334-3.374-.981-.981-2.093-1.275-3.374-1.334C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-              </a>
-              <a href="https://linkedin.com/segnibultossa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <svg width="28" height="28" fill="currentColor" className="text-gray-600 dark:text-gray-300 hover:text-blue-700 transition" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.026-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"/></svg>
-              </a>
-              <a href="https://github.com/psegni" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <svg width="28" height="28" fill="currentColor" className="text-gray-600 dark:text-gray-300 hover:text-black transition" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-              </a>
-              <a href="https://upwork.com/" target="_blank" rel="noopener noreferrer" aria-label="Upwork">
-                <svg width="28" height="28" fill="currentColor" className="text-gray-600 dark:text-gray-300 hover:text-green-600 transition" viewBox="0 0 24 24"><path d="M21.431 13.238c-1.021 0-1.857.83-1.857 1.852 0 1.021.836 1.852 1.857 1.852 1.021 0 1.857-.831 1.857-1.852 0-1.022-.836-1.852-1.857-1.852zm-7.431-1.238c-1.104 0-2 .896-2 2v2.5c0 .276-.224.5-.5.5s-.5-.224-.5-.5v-2.5c0-1.104-.896-2-2-2s-2 .896-2 2v2.5c0 .276-.224.5-.5.5s-.5-.224-.5-.5v-6.5c0-.276.224-.5.5-.5s.5.224.5.5v1.5c.591-.348 1.27-.5 2-.5 1.104 0 2 .896 2 2v2.5c0 .276.224.5.5.5s.5-.224.5-.5v-2.5c0-1.104.896-2 2-2s2 .896 2 2v2.5c0 .276.224.5.5.5s.5-.224.5-.5v-2.5c0-1.104-.896-2-2-2z"/></svg>
-              </a>
+            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              Education & Experience
+            </h3>
+            <div className="space-y-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg"
+              >
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  Bachelor of Science in Software Engineering
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400 mb-2">Adam Science and Technology University</p>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Graduated with a strong foundation in software development principles, algorithms, and modern programming practices.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg"
+              >
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  Senior Web Developer
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400 mb-2">Starting From • 2022 - Present</p>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Led the development of multiple web applications using React and Node.js.
+                  Implemented responsive designs and optimized performance.
+                </p>
+              </motion.div>
+               <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg"
+              >
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  Graphics Designer
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400 mb-2">Starting From • 2022 - Present</p>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Led the development of multiple web applications using React and Node.js.
+                  Implemented responsive designs and optimized performance.Created compelling visual designs for websites, branding, and marketing materials. Developed responsive layouts and engaging user interfaces. Collaborated with teams to ensure visual consistency and optimized design performance across platforms.
+                </p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg"
+              >
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                   Printing & Advertising , CEO
+                </h4>
+                <p className="text-gray-600 dark:text-gray-400 mb-2">Starting From • 2025 - Present</p>
+                <p className="text-gray-600 dark:text-gray-400">
+                Lead printing and advertising strategy, modernizing workflows with digital print tech for faster turnarounds and better color accuracy. Build strong client partnerships to translate brands into impactful campaigns from concept to production. Oversee integrated print collateral, packaging, and large-format ads with consistent brand identity. Drive sustainability, optimize materials use, and boost ROI through data-driven campaigns. </p>
+              </motion.div>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative"
+            viewport={{ once: true }}
           >
-            <motion.div
-              animate={{
-                y: [0, -10, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            >
-              <img
-                src={image}
-                alt="Profile"
-                className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover mx-auto shadow-xl"
-              />
-            </motion.div>
-            <motion.div
-              className="absolute -bottom-4 -right-4 w-72 h-72 bg-blue-600 dark:bg-blue-400 rounded-full opacity-20 blur-2xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            />
+            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              Technologies
+            </h3>
+            <div className="mb-8">
+              <div className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">Programming Languages & Frameworks</div>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 mb-4">
+                {programmingLanguages.map((lang, index) => (
+                  <motion.div
+                    key={lang.name}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.2 }}
+                    className="flex items-center justify-center"
+                  >
+                    <motion.div
+                      animate={{
+                        y: [0, -10, 0],
+                        rotate: [0, 5, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                      }}
+                      className="w-16 h-16 relative"
+                    >
+                      <img
+                        src={lang.logo}
+                        alt={lang.name}
+                        className="w-full h-full object-contain"
+                      />
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+              <div className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2 mt-6">Graphics Design Tools</div>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8">
+                {designTools.map((tool, index) => (
+                  <motion.div
+                    key={tool.name}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.2 }}
+                    className="flex items-center justify-center"
+                  >
+                    <motion.div
+                      animate={{
+                        y: [0, -10, 0],
+                        rotate: [0, 5, 0],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                      }}
+                      className="w-16 h-16 relative"
+                    >
+                      <img
+                        src={tool.logo}
+                        alt={tool.name}
+                        className="w-full h-full object-contain"
+                      />
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -129,4 +265,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default About; 
