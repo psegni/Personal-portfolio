@@ -1,14 +1,17 @@
 import React from 'react';
 
 const galleryWorks = [
-  { src: process.env.PUBLIC_URL + '/poster design 3.png', title: 'Poster Design 1', category: 'poster design' },
-  { src: process.env.PUBLIC_URL + '/poster design 2.png', title: 'Poster Design 2', category: 'poster design' },
-  { src: process.env.PUBLIC_URL + '/book cover 1.png', title: 'Book Cover 1', category: 'book cover design' },
-  { src: process.env.PUBLIC_URL + '/book cover 2.png', title: 'Book Cover 2', category: 'book cover design' },
+  { src: process.env.PUBLIC_URL + '/bookcover2(mockup).png', title: 'Book Cover 1', category: 'book cover design' },
+  { src: process.env.PUBLIC_URL + '/bookcover3(mockup).png', title: 'Book Cover 2', category: 'book cover design' },
+  { src: process.env.PUBLIC_URL + '/thumbnail design 8 modified.png', title: 'Poster Design 4', category: 'poster design' },
+  { src: process.env.PUBLIC_URL + '/freshLemon.png', title: 'Poster Design 2', category: 'poster design' },
+  { src: process.env.PUBLIC_URL + '/laroche edit.png', title: 'Poster Design 3', category: 'poster design' },
+  { src: process.env.PUBLIC_URL + '/jeep cars.png', title: 'Thumbnail Design 2', category: 'thumbnail design' },
+  { src: process.env.PUBLIC_URL + '/Colepalmer poster.png', title: 'Poster Design 1', category: 'poster design' },
   { src: process.env.PUBLIC_URL + '/thumbnail design 1.png', title: 'Thumbnail Design 1', category: 'thumbnail design' },
-  { src: process.env.PUBLIC_URL + '/oky.png', title: 'Oky', category: 'logo design' },
-  { src: process.env.PUBLIC_URL + '/ooky.png', title: 'Ooky', category: 'logo design' },
-  { src: process.env.PUBLIC_URL + '/spoo.png', title: 'Spoo', category: 'logo design' },
+  { src: process.env.PUBLIC_URL + '/thumbnail design 4.png', title: 'Thumbnail Design 3', category: 'thumbnail design' },
+  { src: process.env.PUBLIC_URL + '/hirko.png', title: 'Hirko', category: 'logo design' },
+
 ];
 
 const categories = [
