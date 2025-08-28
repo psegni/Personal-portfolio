@@ -174,6 +174,22 @@ const Contact = () => {
                   <span>{link.name}</span>
                 </motion.a>
               ))}
+              
+              <motion.div
+                whileHover={{ x: 10 }}
+                className="flex items-center space-x-3 text-gray-600 dark:text-gray-300"
+              >
+                <span className="text-2xl">📧</span>
+                <span>segnibultossa97@gmail.com</span>
+              </motion.div>
+              
+              <motion.div
+                whileHover={{ x: 10 }}
+                className="flex items-center space-x-3 text-gray-600 dark:text-gray-300"
+              >
+                <span className="text-2xl">📱</span>
+                <span>+251 989677723</span>
+              </motion.div>
             </div>
 
             <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
