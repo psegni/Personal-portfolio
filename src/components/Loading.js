@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import spookyImage from '../spooky.png';
+import spookyImage from '../sha1.png';
 
 const Loading = () => {
   return (
@@ -17,7 +17,7 @@ const Loading = () => {
         <motion.img
           src={spookyImage}
           alt="Loading..."
-          className="w-65 h-65"
+          className="w-32 h-32 md:w-40 md:h-40"
           animate={{
             y: [0, -20, 0],
             rotate: [0, 5, 0],
