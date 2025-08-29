@@ -172,7 +172,7 @@ const About = () => {
                 className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg"
               >
                 <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                   Printing & Advertising , CEO
+                   Printing & Advertising 
                 </h4>
                 <p className="text-gray-600 dark:text-gray-400 mb-2">Starting From • 2025 - Present</p>
                 <p className="text-gray-600 dark:text-gray-400">
