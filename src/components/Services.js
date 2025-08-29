@@ -38,6 +38,11 @@ const Services = () => {
       description: 'High-quality printing services for business cards, flyers, banners, posters, and other promotional materials with professional finishing.',
       icon: '🖨️',
     },
+    {
+      title: 'Advertising',
+      description: 'Strategic advertising campaigns across digital and traditional media platforms to boost brand visibility and drive customer engagement.',
+      icon: '📢',
+    },
   ];
 
   return (
