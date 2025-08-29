@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { motion } from 'framer-motion';
-import spookyLogo from '../spooky.png';
+import spookyLogo from '../sha1.png';
+import spookyLogoDark from '../sha2.png';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -23,9 +24,9 @@ const Navbar = () => {
       <nav className="bg-white dark:bg-gray-900 shadow py-4 px-8 flex justify-between items-center">
         <Link to="/">
           <img
-            src={spookyLogo}
+            src={isDarkMode ? spookyLogoDark : spookyLogo}
             alt="Portfolio Logo"
-            className="h-12 w-12 rounded-full shadow-md hover:scale-105 transition-transform"
+            className="h-1 w-1 rounded-full shadow-md hover:scale-105 transition-transform"
           />
         </Link>
       </nav>
@@ -42,9 +43,9 @@ const Navbar = () => {
             className="flex-shrink-0 flex items-center"
           >
             <img
-              src={spookyLogo}
+              src={isDarkMode ? spookyLogoDark : spookyLogo}
               alt="Portfolio Logo"
-              className="h-60 w-60 mr-2"
+              className="h-18 w-20 mr-2"
             />
           </motion.div>
 
