@@ -100,7 +100,7 @@ const Home = () => {
                   href="tel:+25189677723" 
                   className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300 text-sm font-medium"
                 >
-                  +251 91 234 5678
+                  +251 989677723
                 </a>
               </div>
               
@@ -114,7 +114,7 @@ const Home = () => {
                   href="mailto:segnibultossa97@gmail.com" 
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 text-sm font-medium"
                 >
-                  segnibultossa@gmail.com
+                  segnibultossa97@gmail.com
                 </a>
               </div>
             </div>
