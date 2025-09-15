@@ -1,5 +1,4 @@
 import React from 'react';
-import { Document, Page, pdfjs } from 'react-pdf'; // Import Document and Page from react-pdf
 
 const galleryWorks = [
   { src: process.env.PUBLIC_URL + '/bookcover2(mockup).png', title: 'Book Cover 1', category: 'book cover design' },
