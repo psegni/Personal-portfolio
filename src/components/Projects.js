@@ -1,7 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import image from '../project-1.png'; 
-
+import taskmanagementapp from '../taskmanagementapp.png';
+import weatherapp from '../weatherapp.png';
+import furnitureapp from '../furniture.png';
+import jobportal from '../jobportal.png';
+import apartment from '../apartment.png';
 const Projects = () => {
   const projects = [
     {
@@ -15,15 +19,35 @@ const Projects = () => {
     {
       title: 'Task Management App',
       description: 'A collaborative task management application with real-time updates.',
-      image: 'https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80',
-      technologies: ['React', 'Firebase', 'Tailwind CSS'],
+      image: taskmanagementapp,
+      technologies: ['React', 'Figma', 'Tailwind CSS', 'mysql'],
     },
     {
       title: 'Weather Dashboard',
       description: 'A weather dashboard that displays current and forecasted weather data.',
-      image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-      technologies: ['JavaScript', 'OpenWeather API', 'Chart.js'],
-      
+      image: weatherapp,
+      technologies: ['Vuejs', 'OpenWeather API', 'Chart.js', 'mysql'],
+    },
+    {
+      title: 'E-Commerce Platform',
+      description: 'A full-stack e-commerce platform with user authentication, product management, and payment integration.',
+      image: furnitureapp,
+      technologies: ['React', 'Node.js', 'MongoDB', 'tailwind CSS'],
+   
+    },
+    {
+      title: 'Real Estate Listing App',
+      description: 'A Vue.js application for browsing and managing real estate listings with advanced filtering and search capabilities.',
+      image: apartment,
+      technologies: ['Vue.js', 'Vuex', 'Vue Router', 'Axios'],
+  
+    },
+    {
+      title: 'JobPost Pro',
+      description: 'A comprehensive job posting and recruitment platform built with Laravel, featuring job listings, applications, and employer dashboard.',
+      image: jobportal,
+      technologies: ['Laravel', 'PHP', 'MySQL', 'Tailwind CSS'],
+ 
     },
   ];
 
@@ -70,7 +94,7 @@ const Projects = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                      className="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors duration-300"
                     >
                       Live Demo
                     </motion.a>

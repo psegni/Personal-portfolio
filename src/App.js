@@ -9,7 +9,6 @@ import Contact from './components/Contact';
 import Loading from './components/Loading';
 import InteractiveBackground from './components/InteractiveBackground';
 import { Routes, Route } from 'react-router-dom';
-import Gallery from './components/Gallery';
 import DesignGalleryPreview from './components/DesignGalleryPreview';
 import NotFound from './components/NotFound';
 
@@ -45,7 +44,6 @@ function App() {
                 <Contact />
               </>
             } />
-            <Route path="/gallery" element={<Gallery />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

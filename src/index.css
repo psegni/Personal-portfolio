@@ -3,13 +3,24 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply m-0 font-sans antialiased;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+ /* Add this CSS to your styles */
+body {
+  overflow-x: hidden; /* Prevent horizontal scroll on the body */
+}
 
-  code {
-    @apply font-mono;
-  }
+.horizontal-scroll {
+  display: flex;
+  flex-direction: row; /* Align items in a row */
+  height: 100vh; /* Full height to fill the viewport */
+}
+
+.section {
+  min-width: 100vw; /* Each section takes the full viewport width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
 }

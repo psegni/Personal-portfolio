@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { motion } from 'framer-motion';
+<<<<<<< HEAD
 import spookyLogo from '../sha1.png';
 import spookyLogoDark from '../sha2.png';
+=======
+import spookyLogo from '../SEGNI LOGO.png';
+import spookyLogoDark from '../SEGNI LOGO(dark).png';
+>>>>>>> 3552ac9 (Added backend and vercel configuration)
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -49,7 +54,6 @@ const Navbar = () => {
             />
           </motion.div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
               {navLinks.map((link) => (
@@ -72,7 +76,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
+      
           <div className="md:hidden">
             <motion.button
               whileTap={{ scale: 0.95 }}
@@ -106,7 +110,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}

@@ -10,7 +10,7 @@ const InteractiveBackground = () => {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
 
-    // Set canvas size
+  
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -18,7 +18,7 @@ const InteractiveBackground = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Mouse move handler
+
     const handleMouseMove = (e) => {
       mouseRef.current = {
         x: e.clientX,
@@ -27,7 +27,7 @@ const InteractiveBackground = () => {
     };
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Create bubbles
+
     const createBubble = () => {
       return {
         x: Math.random() * canvas.width,
@@ -39,21 +39,21 @@ const InteractiveBackground = () => {
       };
     };
 
-    // Initialize bubbles
+  
     for (let i = 0; i < 8; i++) {
       bubblesRef.current.push(createBubble());
     }
 
-    // Animation loop
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       bubblesRef.current.forEach((bubble, index) => {
-        // Update position
+      
         bubble.x += bubble.dx;
         bubble.y += bubble.dy;
 
-        // Mouse interaction
+   
         const dx = mouseRef.current.x - bubble.x;
         const dy = mouseRef.current.y - bubble.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -65,7 +65,7 @@ const InteractiveBackground = () => {
           bubble.y -= Math.sin(angle) * force * 1.5;
         }
 
-        // Bounce off walls
+       
         if (bubble.x + bubble.radius > canvas.width || bubble.x - bubble.radius < 0) {
           bubble.dx = -bubble.dx;
         }
@@ -73,7 +73,7 @@ const InteractiveBackground = () => {
           bubble.dy = -bubble.dy;
         }
 
-        // Draw bubble
+     
         ctx.beginPath();
         ctx.arc(bubble.x, bubble.y, bubble.radius, 0, Math.PI * 2);
         ctx.fillStyle = bubble.color;
@@ -86,7 +86,7 @@ const InteractiveBackground = () => {
 
     animate();
 
-    // Cleanup
+ 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('mousemove', handleMouseMove);
