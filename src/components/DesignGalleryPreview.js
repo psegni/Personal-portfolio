@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Document, Page, pdfjs } from "react-pdf";
 
 const galleryWorks = [
   { src: process.env.PUBLIC_URL + '/bookcover2(mockup).png', category: 'book cover design' },
