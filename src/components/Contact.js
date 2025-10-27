@@ -167,22 +167,6 @@ const Contact = () => {
                   </div>
                 </motion.div>
               ))}
-              
-              <motion.div
-                whileHover={{ x: 10 }}
-                className="flex items-center space-x-3 text-gray-600 dark:text-gray-300"
-              >
-                <span className="text-2xl">📧</span>
-                <span>segnibultossa97@gmail.com</span>
-              </motion.div>
-              
-              <motion.div
-                whileHover={{ x: 10 }}
-                className="flex items-center space-x-3 text-gray-600 dark:text-gray-300"
-              >
-                <span className="text-2xl">📱</span>
-                <span>+251 989677723</span>
-              </motion.div>
             </div>
 
       
@@ -213,8 +197,4 @@ const Contact = () => {
   );
 };
 
-<<<<<<< HEAD
-export default Contact; 
-=======
 export default Contact;
->>>>>>> 3552ac9 (Added backend and vercel configuration)
