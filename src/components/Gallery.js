@@ -11,41 +11,23 @@ const works = [
   { src: process.env.PUBLIC_URL + '/laroche edit.png', title: 'Poster Design 3', category: 'poster design' },
   { src: process.env.PUBLIC_URL + '/Colepalmer poster.png', title: 'Poster Design 4', category: 'poster design' },
   { src: process.env.PUBLIC_URL + '/thumbnail design 8 modified.png', title: 'Poster Design 1', category: 'poster design' },
-<<<<<<< HEAD
-=======
-    { src: process.env.PUBLIC_URL + '/Airforce 1 poster.png', title: 'Shoes Poster Design 1', category: 'shoes poster design' },
-  { src: process.env.PUBLIC_URL + '/nike red shoe poster.png', title: 'Shoes Poster Design 2', category: 'shoes poster design' },
-  { src: process.env.PUBLIC_URL + '/nike teal poster.png', title: 'Shoes Poster Design 2', category: 'shoes poster design' },
-  { src: process.env.PUBLIC_URL + '/puma futurez teal poster.png', title: 'Shoes Poster Design 2', category: 'shoes poster design' },
->>>>>>> 3552ac9 (Added backend and vercel configuration)
   { src: process.env.PUBLIC_URL + '/bookcover3(mockup).png', title: 'Book Cover 2', category: 'book cover design' },
   { src: process.env.PUBLIC_URL + '/india Palace Thumbnail.png', title: 'Thumbnail Design 1', category: 'thumbnail design' },
   { src: process.env.PUBLIC_URL + '/sharkthumbnail.png', title: 'Thumbnail Design 2', category: 'thumbnail design' },
   { src: process.env.PUBLIC_URL + '/elonmusk thumbnail design.png', title: 'Thumbnail Design 3', category: 'thumbnail design' },
   { src: process.env.PUBLIC_URL + '/thumbnail design 4.png', title: 'Thumbnail Design 4', category: 'thumbnail design' },
   { src: process.env.PUBLIC_URL + '/thumbnail design 1.png', title: 'Thumbnail Design 5', category: 'thumbnail design' },
-<<<<<<< HEAD
   { src: process.env.PUBLIC_URL + '/jeep cars.png', title: 'Thumbnail Design 6', category: 'thumbnail design' },
   { src: process.env.PUBLIC_URL + '/spoo.png', title: 'Spooky', category: 'logo design' },
   { src: process.env.PUBLIC_URL + '/hirko.png', title: 'Hirko', category: 'logo design' },
-=======
-  { src: process.env.PUBLIC_URL + '/thumbnail design brooklyn.png', category: 'thumbnail design' },
-
-  { src: process.env.PUBLIC_URL + '/jeep cars.png', title: 'Thumbnail Design 6', category: 'thumbnail design' },
-  { src: process.env.PUBLIC_URL + '/spoo.png', title: 'Spooky', category: 'logo design' },
-  { src: process.env.PUBLIC_URL + '/princelogo.png', title: 'Hirko', category: 'logo design' },
->>>>>>> 3552ac9 (Added backend and vercel configuration)
 ];
 
 const categories = [
   { label: 'All', value: 'all' },
   { label: 'Book Cover Design', value: 'book cover design' },
   { label: 'Poster Design', value: 'poster design' },
-  { label: 'Shoes Poster Design', value: 'shoes poster design' },
   { label: 'Thumbnail Design', value: 'thumbnail design' },
   { label: 'Logo Design', value: 'logo design' },
-
-
 ];
 
 const Gallery = () => {
@@ -97,7 +79,7 @@ const Gallery = () => {
             ))
           )}
         </div>
-    
+        {/* Modal for image enlargement */}
         {modalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50" onClick={closeModal}>
             <div className="bg-white dark:bg-gray-900 p-4 rounded-lg max-w-lg w-full relative" onClick={e => e.stopPropagation()}>
