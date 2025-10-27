@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import spookyImage from '../sha1.png';
-=======
-import React , { useEffect } from 'react';
-import loadingVideo from '../shaintro.mp4'; 
-
->>>>>>> 3552ac9 (Added backend and vercel configuration)
+import loadingVideo from '../shaintro.mp4';
 
 const Loading = () => {
   useEffect(() => {
@@ -14,16 +9,23 @@ const Loading = () => {
   }, []);
 
   return (
-<<<<<<< HEAD
-    <div className="fixed inset-0 bg-white flex items-center justify-center z-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
+      <video
+        id="loadingVideo"
+        src={loadingVideo}
+        autoPlay
+        loop={false}
+        muted
+        className="h-2/4 w-2/4 object-cover absolute inset-0"
+      />
       <motion.div
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{
           duration: 0.5,
-          ease: "easeOut"
+          ease: 'easeOut',
         }}
-        className="relative"
+        className="relative z-10 flex flex-col items-center"
       >
         <motion.img
           src={spookyImage}
@@ -36,32 +38,20 @@ const Loading = () => {
           transition={{
             duration: 2,
             repeat: Infinity,
-            repeatType: "reverse",
+            repeatType: 'reverse',
           }}
         />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-blue-400 text-lg font-semibold"
+          className="text-blue-400 text-lg font-semibold mt-4"
         >
           Loading...
         </motion.div>
       </motion.div>
-=======
-     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
-      <video
-        id="loadingVideo"
-        src={loadingVideo}
-        autoPlay
-        loop={false} 
-        muted
-        className="h-2/4 w-2/4 object-cover" 
-        style={{ position: 'relative' }} 
-      />
->>>>>>> 3552ac9 (Added backend and vercel configuration)
     </div>
   );
 };
 
-export default Loading; 
+export default Loading;
