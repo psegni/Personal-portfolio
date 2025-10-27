@@ -1,55 +1,41 @@
-const express = require('express');
-const cors = require('cors');
-const db = require('../services/db');
+const express = require("express");
+const cors = require("cors");
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const createTable = async () => {
+app.post("/api/contact", async (req, res) => {
+  const { name, email, message } = req.body;
   try {
-    await db.query(`
-      CREATE TABLE IF NOT EXISTS messages (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,
-        email VARCHAR(100) NOT NULL,
-        message TEXT NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-      );
-    `);
-    console.log('Messages table created successfully');
-  } catch (error) {
-    console.error('Error creating table:', error);
-  }
-};
-
-createTable();
-
-app.post('/api/contact', async (req, res) => {
-  try {
-    const { name, email, message } = req.body;
-    
-    const result = await db.query(
-      'INSERT INTO messages (name, email, message) VALUES ($1, $2, $3) RETURNING *',
-      [name, email, message]
-    );
-
-    res.status(201).json({
-      success: true,
-      message: 'Message sent successfully',
-      data: result.rows[0]
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
     });
-  } catch (error) {
-    console.error('Error saving message:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Error sending message',
-      error: error.message
+
+    await transporter.sendMail({
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
+      subject: `New message from ${name}`,
+      html: `
+        <h3>New Contact Message</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
     });
+
+    res.json({ success: true, message: "Email sent successfully!" });
+  } catch (err) {
+    console.error("Email error:", err);
+    res.status(500).json({ error: "Failed to send email" });
   }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-}); 
+module.exports = app;
