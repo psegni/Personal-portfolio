@@ -3,27 +3,6 @@ import { motion } from 'framer-motion';
 const Projects = () => {
   const projects = [
     {
-      title: 'TeachTrack ',
-      description: 'A Teachers Management, recruitment and circulation built with React, Node.js, and Express js.',
-      image: image,
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-      liveLink: 'https://public.teachtrack.birukmaedot.com/',
-      githubLink: 'https://github.com/Biruk-ak/teachtrack',
-    },
-    {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates.',
-      image: taskmanagementapp,
-      technologies: ['React', 'Figma', 'Tailwind CSS', 'mysql'],
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'A weather dashboard that displays current and forecasted weather data.',import React from "react";
-
-
-const Projects = () => {
-  const projects = [
-    {
       title: "Teachtrack",
       description:
         "An educational platform designed to streamline course management and student tracking for teachers and institutions.",
