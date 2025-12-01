@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { motion } from 'framer-motion';
-import spookyLogo from '../sha1.png';
-import spookyLogoDark from '../sha2.png';
+import segnilogo from '../SEGNI LOGO.png';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { isDarkMode } = useTheme(); 
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const isGallery = location.pathname === '/gallery';
@@ -24,9 +23,9 @@ const Navbar = () => {
       <nav className="bg-white dark:bg-gray-900 shadow py-4 px-8 flex justify-between items-center">
         <Link to="/">
           <img
-            src={isDarkMode ? spookyLogoDark : spookyLogo}
-            alt="Portfolio Logo"
-            className="h-1 w-1 rounded-full shadow-md hover:scale-105 transition-transform"
+            src={segnilogo}
+            alt="Segni Logo"
+            className="h-12 w-auto rounded-full shadow-md hover:scale-105 transition-transform"
           />
         </Link>
       </nav>
@@ -43,13 +42,12 @@ const Navbar = () => {
             className="flex-shrink-0 flex items-center"
           >
             <img
-              src={isDarkMode ? spookyLogoDark : spookyLogo}
-              alt="Portfolio Logo"
-              className="h-18 w-20 mr-2"
+              src={segnilogo}
+              alt="Hirko General Trading Logo"
+              className="h-12 w-auto mr-2"
             />
           </motion.div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
               {navLinks.map((link) => (
@@ -62,13 +60,6 @@ const Navbar = () => {
                   {link.name}
                 </motion.a>
               ))}
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                onClick={toggleTheme}
-                className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white"
-              >
-                {isDarkMode ? '🌞' : '🌙'}
-              </motion.button>
             </div>
           </div>
 
@@ -125,13 +116,6 @@ const Navbar = () => {
                 {link.name}
               </motion.a>
             ))}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              onClick={toggleTheme}
-              className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-            >
-              {isDarkMode ? '🌞 Light Mode' : '🌙 Dark Mode'}
-            </motion.button>
           </div>
         </motion.div>
       )}
@@ -139,4 +123,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
