@@ -1,11 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import image from '../project-1.png'; 
-import taskmanagementapp from '../taskmanagementapp.png';
-import weatherapp from '../weatherapp.png';
-import furnitureapp from '../furniture.png';
-import jobportal from '../jobportal.png';
-import apartment from '../apartment.png';
+import { motion } from "framer-motion";
 const Projects = () => {
   const projects = [
     {
@@ -25,7 +21,7 @@ const Projects = () => {
     {
       title: 'Weather Dashboard',
       description: 'A weather dashboard that displays current and forecasted weather data.',import React from "react";
-import { motion } from "framer-motion";
+
 
 const Projects = () => {
   const projects = [
