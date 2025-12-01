@@ -2,31 +2,13 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const About = () => {
-  const [activeTab, setActiveTab] = useState("education");
-  const [previewCert, setPreviewCert] = useState(null);
+  const [activeTab, setActiveTab] = useState("about");
 
   const tabs = [
+    { id: "about", label: "About Me", icon: "👨‍💻" },
+    { id: "experience", label: "Experience", icon: "📂" },
     { id: "education", label: "Education", icon: "🎓" },
-    { id: "experience", label: "Experience", icon: "💼" },
     { id: "certificates", label: "Certificates", icon: "📜" },
-  ];
-
-  const certificates = [
-    {
-      title: "Fundamental Of Programming",
-      org: "udacity ",
-      img: "https://www.udacity.com/certificate/e/9c06f234-07d8-11f0-b20b-ebc3c9db59eb",
-    },
-    {
-      title: "Front-End Developer Certification",
-      org: "FreeCodeCamp",
-      img: "https://i.imgur.com/bK0dBhE.png",
-    },
-    {
-      title: "Cybersecurity Fundamentals",
-      org: "IBM SkillsBuild",
-      img: "https://i.imgur.com/ZXGHJ5A.png",
-    },
   ];
 
   const tabVariant = {
@@ -38,8 +20,9 @@ const About = () => {
   return (
     <section
       id="about"
-      className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300"
+      className="font-ubuntu py-20 bg-white dark:bg-gray-900 transition-colors duration-300"
     >
+      {/* HEADER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -55,9 +38,8 @@ const About = () => {
           transition={{ duration: 0.7 }}
           className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
         >
-          I’m a creative web developer and graphic designer passionate about
-          building digital experiences that balance functionality with elegant
-          design. I thrive on turning ideas into meaningful interfaces.
+          A passionate Fullstack Developer with expertise in web development, advertising, printing, and cybersecurity. 
+          Dedicated to creating innovative solutions and delivering exceptional results.
         </motion.p>
       </div>
 
@@ -90,12 +72,12 @@ const About = () => {
         ))}
       </div>
 
-
+      {/* TAB CONTENT */}
       <div className="max-w-5xl mx-auto px-6">
         <AnimatePresence mode="wait">
-          {activeTab === "education" && (
+          {activeTab === "about" && (
             <motion.div
-              key="education"
+              key="about"
               variants={tabVariant}
               initial="hidden"
               animate="visible"
@@ -103,15 +85,19 @@ const About = () => {
               transition={{ duration: 0.5 }}
               className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-md"
             >
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">
-                Bachelor of Science in Software Engineering
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                Who Am I?
               </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Adam Science and Technology University
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                I am a Fullstack Developer and a Software Engineering graduate from Adama Science and Technology University. 
+                With a strong foundation in web development, I specialize in creating responsive, scalable, and user-friendly applications.
               </p>
-              <p className="mt-3 text-gray-600 dark:text-gray-400">
-                Graduated with strong skills in software development, algorithms,
-                and full-stack web technologies.
+              <p className="text-gray-6 00 dark:text-gray-300 mb-4">
+                My journey in tech has led me to gain valuable experience in advertising, printing, and cybersecurity as a member of the CSEC Cyber Security Team. 
+                I am passionate about leveraging technology to solve real-world problems and drive innovation.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300">
+                Whether it's building robust backend systems or designing intuitive frontend interfaces, I am committed to delivering high-quality solutions that exceed expectations.
               </p>
             </motion.div>
           )}
@@ -124,37 +110,55 @@ const About = () => {
               animate="visible"
               exit="exit"
               transition={{ duration: 0.5 }}
-              className="space-y-6"
+              className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-md"
             >
-              {[
-                {
-                  title: "Website Development",
-                  desc: "Built and deployed full-stack web applications using React, Node.js, and modern frameworks.",
-                },
-                {
-                  title: "Graphics Design",
-                  desc: "Created visually appealing assets and brand identities using Photoshop, Illustrator, and Canva.",
-                },
-                {
-                  title: "Cybersecurity Club Member (CSEC-ASTU)",
-                  desc: "Developed awareness programs and training campaigns for cyber hygiene and threat prevention.",
-                },
-                {
-                  title: "Advertising & Printing Service (Co-founder & CEO)",
-                  desc: "Managed end-to-end creative projects ensuring impactful campaigns and precise color production.",
-                },
-              ].map((exp, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-lg transition-all"
-                >
-                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                    {exp.title}
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-400">{exp.desc}</p>
-                </motion.div>
-              ))}
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                My Experience
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                As a Fullstack Developer, I have worked in various roles, gaining diverse experience in web development, cybersecurity, and design. 
+                My professional journey includes:
+              </p>
+              <ul className="list-disc list-inside text-gray-600 dark:text-gray-300">
+                <li>
+                  <strong>Fullstack Developer (Freelance)</strong>: Developed and deployed web applications for clients, ensuring scalability and responsiveness.
+                </li>
+                <li>
+                  <strong>Qelem Meda Technologies (Internship)</strong>: Worked as a Fullstack Developer intern, contributing to backend and frontend development.
+                </li>
+                <li>
+                  <strong>Graphics Design</strong>: Designed visual content and branding materials for businesses and personal projects.
+                </li>
+                <li>
+                  <strong>ASTU CSEC Cybersecurity</strong>: Collaborated with the CSEC team to identify vulnerabilities and implement security measures.
+                </li>
+                <li>
+                  <strong>Printing and Advertising</strong>: Managed printing services and advertising campaigns for clients, ensuring high-quality deliverables.
+                </li>
+              </ul>
+            </motion.div>
+          )}
+
+          {activeTab === "education" && (
+            <motion.div
+              key="education"
+              variants={tabVariant}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{ duration: 0.5 }}
+              className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-md"
+            >
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                My Education
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                I hold a Bachelor's degree in Software Engineering from Adama Science and Technology University. 
+                My academic journey equipped me with a solid foundation in programming, algorithms, and software development principles.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300">
+                During my studies, I actively participated in cybersecurity competitions and hackathons, honing my skills in problem-solving and teamwork.
+              </p>
             </motion.div>
           )}
 
@@ -166,61 +170,46 @@ const About = () => {
               animate="visible"
               exit="exit"
               transition={{ duration: 0.5 }}
-              className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="space-y-6"
             >
-              {certificates.map((cert, index) => (
+              {[
+                {
+                  title: "Fundamental Of Programming",
+                  issuer: "Udacity",
+                  date: "2024",
+                  desc: "Certified in fundamental programming concepts and problem-solving.",
+                },
+                {
+                  title: "Android Development",
+                  issuer: "Udacity",
+                  date: "2025",
+                  desc: "Certified in building mobile applications using modern technologies like React Native and Kotlin.",
+                },
+                {
+                  title: "Data Analysis Fundamentals",
+                  issuer: "Udacity",
+                  date: "2025",
+                  desc: "Certified in solving complex algorithms and data structure problems using JavaScript.",
+                },
+              ].map((certificate, index) => (
                 <motion.div
                   key={index}
-                  whileHover={{ scale: 1.05 }}
-                  onClick={() => setPreviewCert(cert.img)}
-                  className="cursor-pointer bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-lg transition-all border-l-4 border-teal-500"
                 >
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
-                    {cert.title}
+                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    {certificate.title}
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {cert.org}
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    Issued by: {certificate.issuer} | Date: {certificate.date}
                   </p>
+                  <p className="text-gray-600 dark:text-gray-400">{certificate.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-
-     
-      <AnimatePresence>
-        {previewCert && (
-          <motion.div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setPreviewCert(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative bg-white dark:bg-gray-900 rounded-xl p-4 shadow-lg max-w-3xl w-full"
-            >
-              <button
-                onClick={() => setPreviewCert(null)}
-                className="absolute top-2 right-3 text-gray-700 dark:text-gray-300 text-2xl hover:text-red-500"
-              >
-                ✕
-              </button>
-              <img
-                src={previewCert}
-                alt="Certificate"
-                className="rounded-lg w-full h-auto object-contain"
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };
