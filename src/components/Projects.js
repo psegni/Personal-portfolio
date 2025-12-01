@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import image from '../project-1.png'; 
 const Projects = () => {
   const projects = [
     {
